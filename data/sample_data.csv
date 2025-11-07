@@ -1,0 +1,21 @@
+id,name,age,gender,department,salary,experience,performance_score
+1,John Smith,32,Male,Engineering,75000,5,4.2
+2,Jane Doe,28,Female,Marketing,62000,3,4.5
+3,Mike Johnson,45,Male,Sales,68000,8,3.8
+4,Sarah Williams,35,Female,Engineering,82000,7,4.7
+5,Robert Brown,29,Male,HR,55000,2,4
+6,Emily Davis,41,Female,Finance,78000,10,4.3
+7,David Wilson,38,Male,Engineering,85000,9,4.6
+8,Lisa Anderson,26,Female,Marketing,58000,1,3.9
+9,James Taylor,50,Male,Sales,72000,15,
+10,Maria Garcia,33,Female,Finance,71000,6,4.4
+11,William Martinez,31,Male,Engineering,,4,4.2
+12,Jennifer Rodriguez,44,Female,HR,64000,12,4.5
+13,Michael Lee,27,Male,Marketing,59000,2,3.7
+14,Patricia White,36,Female,Sales,69000,7,4
+15,Christopher Harris,42,Male,Engineering,88000,,4.8
+16,Linda Clark,30,Female,Finance,73000,5,4.3
+17,Daniel Lewis,39,Male,Sales,70000,9,4.1
+18,Barbara Walker,34,Female,Marketing,65000,6,4.4
+19,Matthew Hall,48,Male,Engineering,91000,14,4.6
+20,Susan Allen,29,Female,HR,57000,3,3.8

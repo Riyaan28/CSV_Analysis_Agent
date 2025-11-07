@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Cache and temporary files
+cache_db/
+*.db
+*.sqlite
+*.log
+
+# Documentation (optional, uncomment if you don't want docs in image)
+# README.md
+# QUICKSTART.md
+# VERIFICATION.md
+
+# Screenshots
+screenshots/
+
+# Test files
+tests/
+*.pytest_cache/
+
+# Environment files
+.env
+.env.local
+
+# Batch/Shell scripts (they won't work in Linux container)
+run.bat
+run.ps1
