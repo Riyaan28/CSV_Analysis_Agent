@@ -2,7 +2,24 @@
 
 An intelligent CSV analysis agent that allows users to query and analyze CSV datasets using natural language. Built with LangChain, Ollama, RAG (Retrieval-Augmented Generation), and advanced caching mechanisms.
 
-## 🌟 Features
+## � Demo Video
+
+[![Watch Demo](https://img.shields.io/badge/▶️%20Watch%20Demo-Loom-purple?style=for-the-badge&logo=loom)](https://www.loom.com/share/deb0585b9deb45ad96bda8ad166f7ea0)
+
+**[📹 Click here to watch the full walkthrough](https://www.loom.com/share/deb0585b9deb45ad96bda8ad166f7ea0)**
+
+See the CSV Analysis Agent in action! This demo covers:
+
+- 🚀 Quick setup and installation
+- 📊 Uploading and analyzing CSV files
+- 💬 Natural language query examples
+- 🔍 RAG context retrieval in action
+- ⚡ Caching system demonstration
+- 👍 Feedback system and analytics
+
+---
+
+## �🌟 Features
 
 ### Core Features
 
