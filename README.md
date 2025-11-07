@@ -424,47 +424,135 @@ pip install faiss-gpu
 
 ### Main Dashboard
 
-![Main Dashboard](screenshots/main_dashboard.png)
+![Main Dashboard](screenshots/main%20dashboard.png)
 
-### Query Example
+_Professional Streamlit interface with dark sidebar and intuitive controls_
 
-![Query Example](screenshots/query_example.png)
+### CSV Upload & Analysis
 
-### Feedback System
+![CSV Upload and Analysis](screenshots/uploaded_csv_analysis.png)
 
-![Feedback System](screenshots/feedback_system.png)
+_Upload CSV files and get instant dataset information with column names, types, and statistics_
+
+### Query Search & Results
+
+![Query Search](screenshots/query_search.png)
+
+_Ask natural language questions and get AI-powered responses with RAG context_
+
+### Feedback Export System
+
+![Feedback Export](screenshots/Feedback_export_CSV.png)
+
+_Track user feedback with analytics dashboard and export data for analysis_
 
 ## 📦 Project Structure
 
 ```
 rag_agent/
-├── README.md                   # This file
-├── requirements.txt            # Python dependencies
-├── .gitignore                 # Git ignore rules
-├── app.py                     # Main Streamlit application
-├── .streamlit/
-│   ├── config.toml            # Streamlit configuration
-│   └── custom.css             # Custom styling (removed for streamlit-styles.css)
-├── streamlit-styles.css       # Professional UI styling
-├── src/
-│   ├── __init__.py
-│   ├── agent.py               # LangChain agent implementation
-│   ├── rag_module.py          # RAG with FAISS
-│   ├── cache_manager.py       # Caching logic
-│   ├── feedback_manager.py    # Feedback system
-│   ├── csv_processor.py       # CSV handling
-│   └── ollama_client.py       # Ollama integration
-├── data/
-│   └── sample_data.csv        # Sample dataset for testing
-├── tests/
-│   └── test_agent.py          # Unit tests
-├── screenshots/               # Application screenshots
-│   ├── main_dashboard.png
-│   ├── query_example.png
-│   └── feedback_system.png
-├── cache.db                   # SQLite cache database (generated)
-├── feedback.db                # SQLite feedback database (generated)
-└── feedback_export.csv        # Exported feedback (generated)
+│
+├── 📄 Core Files
+│   ├── app.py                     # 🎯 Main Streamlit application (555 lines)
+│   ├── requirements.txt           # 📦 Python dependencies (13 packages)
+│   ├── README.md                  # 📚 Complete documentation
+│   ├── .gitignore                 # 🚫 Git ignore rules
+│   └── streamlit-styles.css       # 🎨 Professional UI styling
+│
+├── 🐍 Source Code (src/)
+│   ├── __init__.py                # Package initialization
+│   ├── agent.py                   # 🤖 LangChain pandas agent (979 lines)
+│   ├── rag_module.py              # 🔍 RAG with FAISS vector store
+│   ├── cache_manager.py           # 💾 Semantic caching with SQLite
+│   ├── feedback_manager.py        # 👍 User feedback system
+│   ├── csv_processor.py           # 📊 CSV upload and processing
+│   └── ollama_client.py           # 🦙 Ollama LLM integration
+│
+├── 🐳 Docker Setup
+│   ├── Dockerfile                 # Docker image configuration
+│   ├── docker-compose.yml         # Multi-container orchestration
+│   ├── .dockerignore              # Docker build optimization
+│   ├── docker-start.bat           # Windows Docker launcher
+│   └── start-ollama-for-docker.bat # Ollama setup helper
+│
+├── 🚀 Launch Scripts
+│   ├── run.bat                    # Windows Command Prompt launcher
+│   ├── run.ps1                    # PowerShell launcher (recommended)
+│   └── (venv activation handled automatically)
+│
+├── 📖 Documentation
+│   ├── DOCKER.md                  # Complete Docker deployment guide
+│   ├── QUICKSTART.md              # 5-minute quick start (both methods)
+│   ├── QUICKSTART_DOCKER.md       # Docker-specific quick reference
+│   ├── QUERY_EXAMPLES.md          # Example queries and use cases
+│   └── DOCKER_SETUP.md            # Step-by-step Docker tutorial
+│
+├── 📂 Data & Storage
+│   ├── data/
+│   │   └── sample_data.csv        # Sample dataset (20 rows, 8 columns)
+│   ├── cache_db/                  # 💾 SQLite cache storage (auto-generated)
+│   ├── feedback.db                # 📊 Feedback database (auto-generated)
+│   └── feedback_export.csv        # 📥 Exported feedback data
+│
+├── 🧪 Testing
+│   └── tests/
+│       └── test_agent.py          # Unit tests for agent functionality
+│
+├── 📸 Screenshots
+│   ├── README.md                  # Screenshot descriptions
+│   ├── main dashboard.png         # Main interface
+│   ├── uploaded_csv_analysis.png  # CSV upload view
+│   ├── query_search.png           # Query & results
+│   └── Feedback_export_CSV.png    # Feedback analytics
+│
+└── 🗂️ Generated Files (not in repo)
+    ├── venv/                      # Python virtual environment
+    ├── __pycache__/               # Python bytecode cache
+    └── .pytest_cache/             # Pytest cache
+```
+
+### 📊 Code Statistics
+
+| Component             | Lines of Code | Purpose                                  |
+| --------------------- | ------------- | ---------------------------------------- |
+| `app.py`              | 555           | Main UI and application logic            |
+| `agent.py`            | 979           | LangChain pandas agent with 70+ examples |
+| `rag_module.py`       | ~200          | FAISS vector store and retrieval         |
+| `cache_manager.py`    | ~150          | Semantic caching system                  |
+| `feedback_manager.py` | ~120          | Feedback storage and analytics           |
+| `csv_processor.py`    | ~100          | CSV validation and processing            |
+| `ollama_client.py`    | 109           | LLM client wrapper                       |
+| **Total**             | **~2,200+**   | Complete production-ready system         |
+
+### 🏗️ Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                  Streamlit Frontend (app.py)                │
+│                    Port: 8501 (HTTP)                        │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+        ┌────────────────┼────────────────┐
+        │                │                │
+┌───────▼──────┐  ┌──────▼──────┐  ┌─────▼──────┐
+│   Ollama     │  │  LangChain  │  │    CSV     │
+│   Client     │  │   Agent     │  │  Processor │
+│  (llama3.2)  │  │  (Pandas)   │  │            │
+└───────┬──────┘  └──────┬──────┘  └─────┬──────┘
+        │                │               │
+        │         ┌──────▼──────┐        │
+        │         │ RAG Module  │        │
+        │         │   (FAISS)   │        │
+        │         └──────┬──────┘        │
+        │                │               │
+        └────────────────┼───────────────┘
+                         │
+        ┌────────────────┼────────────────┐
+        │                │                │
+┌───────▼──────┐  ┌──────▼──────┐  ┌─────▼──────┐
+│   Cache      │  │  Feedback   │  │   SQLite   │
+│   Manager    │  │   Manager   │  │  Database  │
+│ (Semantic)   │  │ (Analytics) │  │  Storage   │
+└──────────────┘  └─────────────┘  └────────────┘
 ```
 
 ## 🤝 Contributing
@@ -477,10 +565,10 @@ This project is created as part of an internship assessment. All rights reserved
 
 ## 👤 Author
 
-**[Your Name]**
+**Riyaan Sharma**
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+- GitHub: [@Riyaan28](https://github.com/Riyaan28)
+- Email: sharmariyaan0@gmail.com
 
 ## 🙏 Acknowledgments
 
@@ -496,30 +584,6 @@ For questions or issues:
 1. Check the [Troubleshooting](#-troubleshooting) section
 2. Review [Ollama Documentation](https://ollama.ai)
 3. Check [LangChain Documentation](https://python.langchain.com/)
-4. Open an issue on GitHub (after evaluation period)
+4. Open an issue on GitHub
 
 ---
-
-**Note**: This project was developed as part of an AI/ML Engineering Internship assessment. All requirements from the assignment have been implemented and tested.
-
-**Evaluation Checklist**:
-
-- ✅ CSV Upload and Processing (20/20)
-- ✅ Natural Language Query Interface (25/25)
-- ✅ RAG Implementation (20/20)
-- ✅ Caching Mechanism (15/15)
-- ✅ Feedback System (10/10)
-- ✅ Ollama Integration (10/10)
-- ✅ Code Quality & Documentation (20/20)
-- ✅ UI/UX (10/10)
-- ✅ Error Handling (5/5)
-
-**Bonus Features Implemented**:
-
-- ✅ Advanced visualizations (Plotly charts)
-- ✅ Professional custom styling
-- ✅ Comprehensive error handling
-- ✅ Export functionality
-- ✅ Real-time analytics
-
-**Total Score: 100/100 + 10 Bonus Points**
